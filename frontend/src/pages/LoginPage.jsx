@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { authStore } from "../store/authStore";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = authStore();
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    console.log(email, password);
+    login({ email, password });
   };
   return (
     <div className="hero-bg h-screen w-full ">

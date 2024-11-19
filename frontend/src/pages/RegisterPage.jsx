@@ -1,15 +1,21 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { authStore } from "../store/authStore";
 
 const RegisterPage = () => {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const emailValue = searchParams.get("email");
+
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(emailValue || "");
   const [password, setPassword] = useState("");
+
+  const { register } = authStore();
 
   const handleRegister = (e) => {
     e.preventDefault();
-
-    console.log(username, email, password);
+    register({ username, email, password });
   };
 
   return (

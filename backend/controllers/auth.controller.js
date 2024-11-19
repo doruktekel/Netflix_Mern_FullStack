@@ -140,3 +140,18 @@ export const logout = (req, res) => {
     });
   }
 };
+
+export const check = (req, res) => {
+  try {
+    res.status(200).json({
+      success: true,
+      user: req.user,
+    });
+  } catch (error) {
+    console.log("Error in check func", error.message);
+    res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+};
