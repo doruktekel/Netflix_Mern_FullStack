@@ -16,7 +16,7 @@ const AuthScreen = () => {
       {/* HEADER */}
       <header className="max-w-6xl mx-auto p-6 flex justify-between items-center">
         <Link to={"/"}>
-          <img src={"/netflix-logo.png"} alt="logo" className="w-44" />
+          <img src={"/netflix-logo.png"} alt="logo" className="w-32 sm:w-44" />
         </Link>
         <Link
           to={"/login"}
