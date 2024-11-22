@@ -56,14 +56,15 @@ export const register = async (req, res) => {
 
     const hashedPassword = await hashPassword(password);
 
-    // const avatars = ["../images/blueAvatar.jpeg"];
-    // const randomAvatarNumber =
-    //   avatars[Math.floor(Math.random() * avatars.length)];
+    const avatars = ["/avatar1.png", "/avatar2.png", "/avatar3.png"];
+    const randomAvatarNumber =
+      avatars[Math.floor(Math.random() * avatars.length)];
 
     const newUser = await UserModel.create({
       username,
       email,
       password: hashedPassword,
+      image: avatars[randomAvatarNumber],
     });
 
     generateToken(newUser._id, res);
