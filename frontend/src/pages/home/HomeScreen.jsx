@@ -17,8 +17,6 @@ const HomeScreen = () => {
   const { trendingContent } = useGetTrendingContent();
   const { contentType } = contentStore();
 
-  console.log(trendingContent);
-
   if (!trendingContent) {
     return (
       <div className="h-screen text-white relative ">
@@ -58,8 +56,8 @@ const HomeScreen = () => {
                 {trendingContent?.title || trendingContent?.name}
               </p>
               <p className="text-xl  ">
-                {trendingContent?.release_date.split("-")[0] ||
-                  trendingContent?.first_air_date.split("-")[0]}{" "}
+                {trendingContent?.release_date?.split("-")[0] ||
+                  trendingContent?.first_air_date?.split("-")[0]}{" "}
                 | {trendingContent?.adult ? "18+" : "PG-13"}
               </p>
               <p className="text-xl">
