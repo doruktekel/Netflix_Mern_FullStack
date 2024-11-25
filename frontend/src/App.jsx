@@ -4,9 +4,11 @@ import { Toaster } from "react-hot-toast";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/home/HomePage";
+import WatchPage from "./pages/WatchPage";
 import Footer from "./components/Footer";
 import { authStore } from "./store/authStore";
 import { Loader } from "lucide-react";
+import ScrollTop from "./components/ScrollTop";
 
 const App = () => {
   const { authCheck, user, isChecking } = authStore();
@@ -26,6 +28,7 @@ const App = () => {
   }
   return (
     <div>
+      <ScrollTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -35,6 +38,11 @@ const App = () => {
         <Route
           path="/login"
           element={!user ? <LoginPage /> : <Navigate to={"/"} />}
+        />
+
+        <Route
+          path={"/watch/:id"}
+          element={user ? <WatchPage /> : <LoginPage />}
         />
       </Routes>
       <Footer />
