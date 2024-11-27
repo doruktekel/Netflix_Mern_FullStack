@@ -9,6 +9,9 @@ import Footer from "./components/Footer";
 import { authStore } from "./store/authStore";
 import { Loader } from "lucide-react";
 import ScrollTop from "./components/ScrollTop";
+import SearchPage from "./pages/SearchPage";
+import SearchHistoryPage from "./pages/SearchHistoryPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const App = () => {
   const { authCheck, user, isChecking } = authStore();
@@ -44,6 +47,15 @@ const App = () => {
           path={"/watch/:id"}
           element={user ? <WatchPage /> : <LoginPage />}
         />
+
+        <Route path="/search" element={user ? <SearchPage /> : <LoginPage />} />
+
+        <Route
+          path="/search-history"
+          element={user ? <SearchHistoryPage /> : <LoginPage />}
+        />
+
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
       <Toaster />

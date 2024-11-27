@@ -5,7 +5,7 @@ import { authStore } from "../store/authStore";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login } = authStore();
+  const { login, isLoggingIn } = authStore();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -58,8 +58,9 @@ const LoginPage = () => {
             <button
               type="submit"
               className="w-full rounded-md bg-red-700 text-gray-100 text-sm p-1 "
+              disabled={isLoggingIn}
             >
-              Log In
+              {isLoggingIn ? "Loading" : "Log In"}
             </button>
           </form>
           <div>

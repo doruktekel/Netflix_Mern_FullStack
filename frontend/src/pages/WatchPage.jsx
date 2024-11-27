@@ -110,7 +110,7 @@ const WatchPage = () => {
   }
 
   return (
-    <div className=" bg-black">
+    <div className=" bg-black min-h-screen">
       <Navbar />
       {trailers?.length > 0 && (
         <div className="max-w-7xl mx-auto mt-6 px-10">

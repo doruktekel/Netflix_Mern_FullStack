@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { LogOut, Menu, Search } from "lucide-react";
+
 import { authStore } from "../store/authStore";
 import { contentStore } from "../store/contentStore";
 
@@ -15,7 +16,7 @@ const Navbar = () => {
 
   return (
     <header className="max-w-6xl mx-auto p-6 flex justify-between items-center bg-transparent text-white relative z-10">
-      <div className="gap-4 items-center   flex">
+      <div className="gap-4 items-center  flex">
         <Link to={"/"}>
           <img src={"/netflix-logo.png"} alt="logo" className="w-32 sm:w-44" />
         </Link>
@@ -36,7 +37,7 @@ const Navbar = () => {
           >
             Tv Shows
           </Link>
-          <Link to={"/"} className="underline">
+          <Link to={"/search-history"} className="underline">
             Search History
           </Link>
         </div>

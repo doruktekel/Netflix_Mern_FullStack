@@ -11,7 +11,7 @@ const RegisterPage = () => {
   const [email, setEmail] = useState(emailValue || "");
   const [password, setPassword] = useState("");
 
-  const { register } = authStore();
+  const { register, isRegistering } = authStore();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -77,8 +77,9 @@ const RegisterPage = () => {
             <button
               type="submit"
               className="w-full rounded-md bg-red-700 text-gray-100 text-sm p-1 "
+              disabled={isRegistering}
             >
-              Register
+              {isRegistering ? "Loading" : "Register"}
             </button>
           </form>
           <div>
